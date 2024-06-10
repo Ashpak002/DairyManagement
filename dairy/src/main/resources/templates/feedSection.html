@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy Management Software - Feed Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            list-style: none;
+        }
+        header li {
+            float: left;
+            display: inline;
+            padding: 0 20px 0 20px;
+        }
+        .feed-form {
+            background: #ffffff;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .feed-form h2 {
+            margin: 0 0 15px;
+        }
+        .feed-form input[type="text"],
+        .feed-form input[type="number"],
+        .feed-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .feed-form input[type="submit"] {
+            background: #35424a;
+            color: #ffffff;
+            border: 0;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .feed-table {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .feed-table th,
+        .feed-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        .feed-table th {
+            background: #35424a;
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Dairy Management Software</h1>
+        </div>
+    </header>
+    <div class="container">
+        <section class="feed-section">
+            <h2>Feed Management</h2>
+            <div class="feed-form">
+                <h2>Add New Feed</h2>
+                <form>
+                    <label for="feed-name">Feed Name:</label>
+                    <input type="text" id="feed-name" name="feed-name" required>
+
+                    <label for="quantity">Quantity (kg):</label>
+                    <input type="number" id="quantity" name="quantity" required>
+
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+
+                    <label for="supplier">Supplier:</label>
+                    <input type="text" id="supplier" name="supplier">
+
+                    <input type="submit" value="Add Feed">
+                </form>
+            </div>
+            <div class="feed-table-container">
+                <h2>Feed List</h2>
+                <table class="feed-table">
+                    <thead>
+                        <tr>
+                            <th>Feed Name</th>
+                            <th>Quantity (kg)</th>
+                            <th>Date</th>
+                            <th>Supplier</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Hay</td>
+                            <td>100</td>
+                            <td>2023-06-01</td>
+                            <td>Supplier A</td>
+                            <td>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Silage</td>
+                            <td>200</td>
+                            <td>2023-06-02</td>
+                            <td>Supplier B</td>
+                            <td>
+                                <button>Edit</button>
+                                <button>Delete</button>
+                            </td>
+                        </tr>
+                        <!-- More feed entries can go here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

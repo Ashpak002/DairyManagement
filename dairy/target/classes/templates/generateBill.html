@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy Management Software - Billing Section</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #35424a;
+            color: #ffffff;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 3px solid;
+        }
+        header h1 {
+            margin: 0;
+            text-align: center;
+        }
+        .billing-form {
+            background: #ffffff;
+            padding: 20px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .billing-form h2 {
+            margin: 0 0 15px;
+        }
+        .billing-form input[type="text"],
+        .billing-form input[type="number"],
+        .billing-form input[type="date"],
+        .billing-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .billing-form input[type="submit"] {
+            background: #35424a;
+            color: #ffffff;
+            border: 0;
+            padding: 10px 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .billing-table {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .billing-table th,
+        .billing-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+        .billing-table th {
+            background: #35424a;
+            color: #ffffff;
+        }
+        .actions button {
+            background: #e8491d;
+            color: #ffffff;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+        .actions button.edit {
+            background: #35424a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dairy Management Software</h1>
+    </header>
+    <div class="container">
+        <section class="billing-section">
+            <h2>Billing Management</h2>
+            <div class="billing-form">
+                <h2>Add New Billing Entry</h2>
+                <form>
+                    <label for="customer-name">Customer Name:</label>
+                    <input type="text" id="customer-name" name="customer-name" required>
+
+                    <label for="service">Service:</label>
+                    <input type="text" id="service" name="service" required>
+
+                    <label for="amount">Amount:</label>
+                    <input type="number" id="amount" name="amount" required>
+
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+
+                    <input type="submit" value="Add Billing Entry">
+                </form>
+            </div>
+            <div class="billing-table-container">
+                <h2>Billing List</h2>
+                <table class="billing-table">
+                    <thead>
+                        <tr>
+                            <th>Customer Name</th>
+                            <th>Service</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John Doe</td>
+                            <td>Milk Delivery</td>
+                            <td>50</td>
+                            <td>2024-06-01</td>
+                            <td class="actions">
+                                <button class="edit">Edit</button>
+                                <button class="delete">Delete</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Jane Smith</td>
+                            <td>Cheese Supply</td>
+                            <td>150</td>
+                            <td>2024-06-02</td>
+                            <td class="actions">
+                                <button class="edit">Edit</button>
+                                <button class="delete">Delete</button>
+                            </td>
+                        </tr>
+                        <!-- More billing entries can go here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

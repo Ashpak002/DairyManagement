@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dairy Management System - Farmers</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      padding: 20px;
+      background-color: #007bff;
+      color: white;
+      margin: 0;
+    }
+    table {
+      margin: 20px auto;
+      border-collapse: collapse;
+      width: 90%;
+      max-width: 1200px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+    table th {
+      background-color: #f2f2f2;
+    }
+    table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px 0;
+    }
+    .button-container button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 0 10px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .button-container button:disabled {
+      background-color: #6c757d;
+      cursor: not-allowed;
+    }
+    .button-container button:hover:not(:disabled) {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dairy Management System - Farmers</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Farmer Name</th>
+        <th>Code</th>
+        <th>Mobile Number</th>
+        <th>Aadhaar Number</th>
+        <th>Has Animals</th>
+        <th>Address</th>
+        <th>Gender</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <div class="button-container">
+    <button id="edit-button" disabled>Edit</button>
+    <button id="update-button" disabled>Update</button>
+  </div>
+
+  <script>
+    // Replace this with your logic to fetch farmer data from a database or API
+    const farmers = [
+      { id: 1, farmername: "John Doe", code: 123, farmermobilenumber: 1234567890, adharnumber: 9876543210, farmeranimal: true, farmeraddress: "123 Main St", farmergender: true },
+      // Add more farmer objects here
+    ];
+
+    // Function to create table rows from farmer data
+    function createTableRow(farmer) {
+      const tableRow = document.createElement('tr');
+      tableRow.innerHTML = `
+        <td>${farmer.id}</td>
+        <td>${farmer.farmername}</td>
+        <td>${farmer.code}</td>
+        <td>${farmer.farmermobilenumber}</td>
+        <td>${farmer.adharnumber}</td>
+        <td>${farmer.farmeranimal ? "Yes" : "No"}</td>
+        <td>${farmer.farmeraddress}</td>
+        <td>${farmer.farmergender ? "Male" : "Female"}</td>
+        <td>
+          <button class="edit-button" data-farmer-id="${farmer.id}">Edit</button>
+        </td>
+      `;
+      return tableRow;
+    }
+
+    // Insert table rows for each farmer
+    const tbody = document.querySelector('tbody');
+    farmers.forEach(farmer => tbody.appendChild(createTableRow(farmer)));
+
+    // Edit button click handler (placeholder, implement edit functionality)
+    const editButtons = document.querySelectorAll('.edit-button');
+    editButtons.forEach(button => button.addEventListener('click', () => {
+      const farmerId = button.dataset.farmerId;
+      // Implement logic to edit farmer data based on farmerId
+      console.log("Edit button clicked for farmer:", farmerId);
+      // Enable update button after editing
+      document.getElementById('update-button').disabled = false;
+    }));
+
+    // Update button click handler (placeholder, implement update functionality)
+    document.getElementById('update-button').addEventListener('click', () => {
+      // Implement logic to update farmer data based on selected farmer
+      console.log("Update button clicked");
+      // Disable update button after update
+      document.getElementById('update-button').disabled = true;
+    });
+  </script>
+</body>
+</html>

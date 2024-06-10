@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dairy Management Software - Milk Collection</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+header {
+    background: #35424a;
+    color: #ffffff;
+    padding-top: 30px;
+    min-height: 70px;
+    border-bottom: #e8491d 3px solid;
+}
+header h1 {
+    margin: 0;
+    text-align: center;
+}
+.milk-collection-form {
+    background: #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.milk-collection-form h2 {
+    margin: 0 0 15px;
+}
+.milk-collection-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+.milk-collection-form input[type="text"],
+.milk-collection-form input[type="number"],
+.milk-collection-form input[type="date"],
+.milk-collection-form input[type="time"],
+.milk-collection-form select,
+.milk-collection-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.milk-collection-form input[type="submit"] {
+    background: #35424a;
+    color: #ffffff;
+    border: 0;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.milk-collection-table {
+    margin-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+.milk-collection-table th,
+.milk-collection-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+.milk-collection-table th {
+    background: #35424a;
+    color: #ffffff;
+}
+.milk-collection-table tbody tr:hover {
+    background-color: #f2f2f2;
+}
+.milk-collection-table .actions button {
+    background: #e8491d;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+.milk-collection-table .actions button.edit {
+    background: #35424a;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dairy Management Software</h1>
+    </header>
+    <div class="container">
+        <section class="milk-collection-section">
+            <h2>Milk Collection</h2>
+            <div class="milk-collection-form">
+                <h2>Add New Milk Collection Entry</h2>
+                <form>
+                    <label for="farmer-name">Farmer Name:</label>
+                    <input type="text" id="farmer-name" name="farmer-name" required>
+
+                    <label for="gender">Gender:</label>
+                    <select id="gender" name="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+
+                    <label for="milk-type">Milk Type:</label>
+                    <select id="milk-type" name="milk-type">
+                        <option value="cow">Cow</option>
+                        <option value="buffalo">Buffalo</option>
+                    </select>
+
+                    <label for="fat">Fat (%):</label>
+                    <input type="number" id="fat" name="fat" step="0.01" min="0" max="100" required>
+
+                    <label for="snf">SNF (%):</label>
+                    <input type="number" id="snf" name="snf" step="0.01" min="0" max="100" required>
+
+                    <label for="lactose">Lactose (%):</label>
+                    <input type="number" id="lactose" name="lactose" step="0.01" min="0" max="100">
+
+                    <label for="acidity">Acidity (pH):</label>
+                    <input type="number" id="acidity" name="acidity" step="0.01" min="0" max="14">
+
+                    <label for="temperature">Temperature (°C):</label>
+                    <input type="number" id="temperature" name="temperature" step="0.01">
+
+                    <label for="liters">Liters:</label>
+                    <input type="number" id="liters" name="liters" min="0" required>
+
+                    <label for="water">Water Percentage (%):</label>
+                    <input type="number" id="water" name="water" step="0.01" min="0" max="100" required>
+
+                    <label for="degree">Degree:</label>
+                    <input type="text" id="degree" name="degree">
+
+                    <label for="location">Location:</label>
+                    <input type="text" id="location" name="location">
+
+                    <label for="payment">Payment (per liter):</label>
+                    <input type="number" id="payment" name="payment" step="0.01">
+
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" required>
+
+                    <label for="time">Time:</label>
+                    <input type="time" id="time" name="time" required>
+
+                    <label for="notes">Notes:</label>
+                    <textarea id="notes" name="notes" rows="3"></textarea>
+
+                    <input type="submit" value="Add Milk Collection">
+                </form>
+            </div>
+            <div class="milk-collection-table-container">
+                <h2>Milk Collection List</h2>
+                <table class="milk-collection-table">
+                    <thead>
+                        <tr>
+                            <th>Farmer Name</th>
+                            <th>Gender</th>
+                            <th>Milk Type</th>
+                            <th>Fat (%)</th>
+                            <th>SNF (%)</th>
+                            <th>Lactose (%)</th>
+                            <th>Acidity (pH)</th>
+                            <th>Temperature (°C)</th>
+                            <th>Liters</th>
+                            <th>Water Percentage (%)</th>
+                            <th>Degree</th>
+                            <th>Location</th>
+                            <th>Payment (per liter)</th>
+                            <th>Total Amount</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Notes</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Milk collection entries will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
